@@ -1,0 +1,41 @@
+{
+  "name": "@dead404code/bun.build-packaged",
+  "version": "1.0.0",
+  "description": "A Bun.build wrapper, designed to simplify working with Bun.build",
+  "keywords": [
+    "Bun",
+    "Bun.build"
+  ],
+  "homepage": "https://github.com/DeadCodeGames/Bun.build-Packaged#readme",
+  "bugs": {
+    "url": "https://github.com/DeadCodeGames/Bun.build-Packaged/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeadCodeGames/Bun.build-Packaged.git"
+  },
+  "license": "WTFPL",
+  "author": "Richard Kanshen @ DeadCodeGames <kanshen@mail.deadcode.is-a.dev> (https://deadcode.is-a.dev)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "bun run tests/build.test.ts"
+  },
+  "dependencies": {
+    "glob": "^11.0.1",
+    "trycatch": "git+https://github.com/RichardKanshen/tryCatch.git"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.2"
+  },
+  "module": "index.ts",
+  "packageManager": "bun@1.2.5"
+}
