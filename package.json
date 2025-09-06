@@ -1,6 +1,6 @@
 {
   "name": "@dead404code/bun.build-packaged",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Bun.build wrapper, designed to simplify working with Bun.build",
   "keywords": [
     "Bun",

@@ -1,5 +1,5 @@
 # Bun.build() Packaged **××**
-###### Version 1.0.0
+###### Version 1.0.1
 This is more than just a Bun.build wrapper, it is a comprehensive build solution for web projects, and a (very hopeful) replacement for react-scripts / react-app-rewired.
 
 ## 🌟 Why Bun.build Packaged?
@@ -65,7 +65,7 @@ The nature of the path alias replacement is... *kinda destructive*. I mean, it *
 
 ```typescript
 const { data: sandboxPath } = await createSandbox('./build-temp');
-const sandboxPath = (...pathArgs: string[]) => path.join(sandbox.data, ...pathArgs); // helper function for constructing sandbox paths
+const sandboxPath = (...pathArgs: string[]) => path.join(data, ...pathArgs); // helper function for constructing sandbox paths
 await importToSandbox(path.resolve(__dirname, "src"), sandboxPath, 'src');
 await importToSandbox(path.resolve(__dirname, "public"), sandboxPath, 'public');
 await BunBuild(

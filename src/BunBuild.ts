@@ -9,11 +9,11 @@ export default async function BunBuild(opts: BunBuildConfig, advanced?: BunBuild
     return new Promise(async (resolve, reject) => {
         makeOutDir(advanced?.clearOutputDirIfPresent || false, opts.outdir)
 
-        copyPublicFolder(advanced?.copyPublicDir || false, advanced?.publicDirPath || "", opts.outdir)
+        copyPublicFolder(advanced?.copyPublicDir || false, advanced?.publicDirPath || "", opts.outdir, opts.publicPath)
 
         replaceAliases(advanced?.handleAliases || false, advanced?.aliasesRecords || {}, opts.entrypoints)
 
-        const conversionResults = await build({ target: "browser", format: "iife",...opts, publicPath: opts.publicPath.endsWith("/") ? opts.publicPath : opts.publicPath + "/", outdir: undefined });
+        const conversionResults = await build({ target: "browser", format: "iife",...opts, define: {'process.env.NODE_ENV': 'production', 'process.env.PUBLIC_URL': opts.publicPath, ...opts.define }, publicPath: opts.publicPath.endsWith("/") ? opts.publicPath : opts.publicPath + "/", outdir: undefined });
         
         const htmlFiles = fs.globSync(`${opts.outdir}/**/*.html`).map(p => relative(opts.outdir, p).replaceAll("\\", "/"));
         const { assetManifest, buildFileMappings } = await generateAssetManifest(conversionResults, opts.naming, htmlFiles);

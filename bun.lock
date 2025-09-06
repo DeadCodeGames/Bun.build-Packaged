@@ -5,7 +5,7 @@
       "name": "@dead404code/bun.build-packaged",
       "dependencies": {
         "glob": "^11.0.1",
-        "trycatch": "https://github.com/RichardKanshen/tryCatch/",
+        "trycatch": "git+https://github.com/RichardKanshen/tryCatch.git",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -80,7 +80,7 @@
 
     "strip-ansi-cjs": ["strip-ansi@6.0.1", "", { "dependencies": { "ansi-regex": "^5.0.1" } }, "sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A=="],
 
-    "trycatch": ["trycatch@github:RichardKanshen/tryCatch/#3ce02f2", {}, "RichardKanshen-tryCatch-3ce02f2"],
+    "trycatch": ["trycatch@github:RichardKanshen/tryCatch#3ce02f2", {}, "RichardKanshen-tryCatch-3ce02f2"],
 
     "typescript": ["typescript@5.8.2", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ=="],
 

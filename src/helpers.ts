@@ -13,9 +13,20 @@ export function makeOutDir(clean: boolean, outDir: string) {
     }
 }
 
-export function copyPublicFolder(shouldCopy: boolean, publicDirPath: string, outDir: string) {
+export function copyPublicFolder(shouldCopy: boolean, publicDirPath: string, outDir: string, publicURL: string) {
     if (shouldCopy && publicDirPath && existsSync(publicDirPath)) {
         cpSync(publicDirPath, outDir, { recursive: true });
+
+        const files = globSync("**/*.html", { cwd: outDir });
+        for (const file of files) {
+            const filePath = join(outDir, file);
+            if (existsSync(filePath)) {
+                let content = readFileSync(filePath, 'utf-8');
+                content = content.replace(/%PUBLIC_URL%/g, publicURL.replace(/\/*$/, ''));
+                writeFileSync(filePath, content, 'utf-8');
+                console.log(`Replaced %PUBLIC_URL% in: ${filePath}`);
+            }
+        }
     }
 }
 
